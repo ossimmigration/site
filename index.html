@@ -590,38 +590,6 @@
 
     <!--====== TESTIMONIAL PART ENDS ======-->
 
-    <!--====== BRAND PART START ======-->
-
-    <div id="brand" class="brand-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="brand-wrapper pt-70 clearfix">
-                        <div class="single-brand mt-50 text-md-left wow fadeIn" data-wow-duration="1s"
-                            data-wow-delay="0.2s">
-                            <img src="assets/images/brand-1.png" alt="brand">
-                        </div> <!-- single brand -->
-                        <div class="single-brand mt-50 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
-                            <img src="assets/images/brand-2.png" alt="brand">
-                        </div> <!-- single brand -->
-                        <div class="single-brand mt-50 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.4s">
-                            <img src="assets/images/brand-3.png" alt="brand">
-                        </div> <!-- single brand -->
-                        <div class="single-brand mt-50 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
-                            <img src="assets/images/brand-4.png" alt="brand">
-                        </div> <!-- single brand -->
-                        <div class="single-brand mt-50 text-md-right wow fadeIn" data-wow-duration="1s"
-                            data-wow-delay="0.6s">
-                            <img src="assets/images/brand-5.png" alt="brand">
-                        </div> <!-- single brand -->
-                    </div> <!-- brand wrapper -->
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </div>
-
-    <!--====== BRAND PART ENDS ======-->
-
     <!--====== BLOG PART START ======-->
 
     <section id="blog" class="blog-area pt-115">
@@ -760,30 +728,33 @@
                         data-wow-delay="0.5s">
                         <h4 class="contact-title pb-10"><i class="lni-envelope"></i> Leave <span>A Message.</span></h4>
 
-                        <form id="contact-form" action="assets/contact.php" method="post">
+                        <form id="contact-form">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="contact-form mt-45">
                                         <label>Enter Your Name</label>
-                                        <input type="text" name="name" placeholder="Full Name">
+                                        <input type="text" name="name" placeholder="Full Name" id="contactname"
+                                            required>
                                     </div> <!-- contact-form -->
                                 </div>
                                 <div class="col-md-6">
                                     <div class="contact-form mt-45">
                                         <label>Enter Your Email</label>
-                                        <input type="email" name="email" placeholder="Email">
+                                        <input type="email" name="email" placeholder="Email" id="contactemail" required>
                                     </div> <!-- contact-form -->
                                 </div>
                                 <div class="col-md-12">
                                     <div class="contact-form mt-45">
                                         <label>Your Message</label>
-                                        <textarea name="message" placeholder="Enter your message..."></textarea>
+                                        <textarea name="message" placeholder="Enter your message..." id="contactmessage"
+                                            required></textarea>
                                     </div> <!-- contact-form -->
                                 </div>
                                 <p class="form-message"></p>
                                 <div class="col-md-12">
                                     <div class="contact-form mt-45">
-                                        <button type="submit" class="main-btn">Send Now</button>
+                                        <button type="submit" class="main-btn" onclick="clientdetails()">Send
+                                            Now</button>
                                     </div> <!-- contact-form -->
                                 </div>
                             </div> <!-- row -->
@@ -875,23 +846,72 @@
     <!--====== Contact Js ======-->
 
     <script>
+
+        const element = document.querySelector('form');
+        element.addEventListener('submit', event => {
+            event.preventDefault();
+        });
+
         function clientinquiry() {
             console.log("Client inquiry!")
-            var data = document.getElementById('emailhero').value
-            if(data==""){
-                alert("Please enter a valid email !")
+            var email = document.getElementById('emailhero').value
+            var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            if (email.match(validRegex)) {
+                fetch('https://ossclientcontact.herokuapp.com/details', {
+                    method: 'POST',
+                    body: new URLSearchParams({
+                        'email': email
+                    })
+                }).then(response => {
+                    return response.text()
+                }).then(data => {
+                    console.log(data)
+                    if (data == "ok") {
+                        document.getElementById('emailhero').value = ""
+                    }
+                })
             }
-            var xhr = new XMLHttpRequest();
-            var url = 'https://ossclientcontact.herokuapp.com/'+ data
-            xhr.open("POST", url, true);
-            xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.send();
-            xhr.onload = function () {
-                //var data = JSON.parse(this.responseText);
-                console.log(this.responseText)
-                //console.log(data);
-            };
+            else {
+                alert("Please enter a valid email !")
+                document.getElementById('emailhero').value = ""
+            }
         }
+
+        function clientdetails() {
+            console.log("Client inquiry!")
+            var name = document.getElementById('contactname').value
+            var email = document.getElementById('contactemail').value
+            var message = document.getElementById('contactmessage').value
+            var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            if (email.match(validRegex)) {
+                fetch('https://ossclientcontact.herokuapp.com/details', {
+                    method: 'POST',
+                    body: new URLSearchParams({
+                        'name': name,
+                        'email': email,
+                        'message': message
+                    })
+                }).then(response => {
+                    return response.text()
+                }).then(data => {
+                    console.log(data)
+                    if (data == "ok") {
+                        document.getElementById('contactname').value = ""
+                        document.getElementById('contactemail').value = ""
+                        document.getElementById('contactmessage').value = ""
+                    }
+                });
+            }
+            else {
+                alert("Please enter a valid email !")
+                document.getElementById('contactname').value = ""
+                document.getElementById('contactemail').value = ""
+                document.getElementById('contactmessage').value = ""
+            }
+        }
+
+
+
     </script>
 
     <!--====== Contact Js end======-->
