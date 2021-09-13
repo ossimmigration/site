@@ -131,7 +131,7 @@
                             <p class="text wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">Delivering world
                                 class immigration solutions for over 20 years.</p>
                             <div class="header-singup wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.8s">
-                                <input type="text" placeholder="E-mail address" id="emailhero">
+                                <input type="text" placeholder="E-mail address" id="emailhero" required>
                                 <button class="main-btn" onclick="clientinquiry()">Get in touch</button>
                             </div>
                         </div> <!-- header hero content -->
@@ -878,12 +878,14 @@
         function clientinquiry() {
             console.log("Client inquiry!")
             var data = document.getElementById('emailhero').value
+            if(data==""){
+                alert("Please enter a valid email !")
+            }
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", 'http://127.0.0.1:8080/', true);
+            var url = 'https://ossclientcontact.herokuapp.com/'+ data
+            xhr.open("POST", url, true);
             xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.send(JSON.stringify({
-                email : data
-            }));
+            xhr.send();
             xhr.onload = function () {
                 //var data = JSON.parse(this.responseText);
                 console.log(this.responseText)
