@@ -43,6 +43,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 
+    <style>
+        .intl-tel-input {
+            width: 100%;
+        }
+
+        .iti {
+            width: 100%;
+        }
+    </style>
 
 </head>
 
@@ -103,13 +112,9 @@
                                     <li class="nav-item">
                                         <a href="#services">Services</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a href="#portfolio">News</a>
-                                    </li>
                                     <li class="nav-item d-sm-none d-block">
                                         <a href="#contact">Contact us</a>
                                     </li>
-
 
                                 </ul>
                             </div> <!-- navbar collapse -->
@@ -138,7 +143,8 @@
                                 <input type="text" placeholder="E-mail address" id="emailhero" required>
                                 <button class="main-btn" onclick="clientinquiry()">Get in touch</button>
                                 <br>
-                                <div id="successdiv" class="border border-success text-center mt-30 d-none py-2" style="margin: auto; margin-top: 2.5rem; ">
+                                <div id="successdiv" class="border border-success text-center mt-30 d-none py-2"
+                                    style="margin: auto; margin-top: 2.5rem; ">
                                     <i class="far fa-check-circle text-success"></i>
                                     <span class="text-success">Request sent </span>
                                 </div>
@@ -704,7 +710,7 @@
                                 <div class="col-md-4">
                                     <div class="contact-form mt-45">
                                         <label>Enter Your Phone Number</label>
-                                        <input id="phone" type="tel" name="phone" required style="width: 100% !important;"/>
+                                        <input id="phone" type="tel" name="phone" required />
                                     </div> <!-- contact-form -->
                                 </div>
                                 <div class="col-md-12">
@@ -722,7 +728,7 @@
                                     </div> <!-- contact-form -->
 
 
-                                   
+
 
                                 </div>
                             </div> <!-- row -->
@@ -856,12 +862,11 @@
 
         function clientdetails() {
 
-            const phoneNumber = phoneInput.getNumber();
-            console.log(phoneNumber)
-
             console.log("Client inquiry!")
             var name = document.getElementById('contactname').value
             var email = document.getElementById('contactemail').value
+            var number = phoneInput.getNumber()
+            console.log(number)
             var message = document.getElementById('contactmessage').value
             var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
             if (email.match(validRegex)) {
@@ -870,6 +875,7 @@
                     body: new URLSearchParams({
                         'name': name,
                         'email': email,
+                        'number': number,
                         'message': message
                     })
                 }).then(response => {
@@ -879,6 +885,7 @@
                     if (data == "ok") {
                         document.getElementById('contactname').value = ""
                         document.getElementById('contactemail').value = ""
+                        document.getElementById('phone').value = ""
                         document.getElementById('contactmessage').value = ""
                     }
                 });
@@ -887,6 +894,7 @@
                 alert("Please enter a valid email !")
                 document.getElementById('contactname').value = ""
                 document.getElementById('contactemail').value = ""
+                document.getElementById('phone').value = ""
                 document.getElementById('contactmessage').value = ""
             }
         }
