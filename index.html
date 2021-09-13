@@ -40,6 +40,10 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
+
 </head>
 
 <body>
@@ -133,6 +137,11 @@
                             <div class="header-singup wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.8s">
                                 <input type="text" placeholder="E-mail address" id="emailhero" required>
                                 <button class="main-btn" onclick="clientinquiry()">Get in touch</button>
+                                <br>
+                                <div id="successdiv" class="border border-success text-center mt-30 d-none" style="margin: auto; margin-top: 2.5rem; ">
+                                    <i class="far fa-check-circle text-success"></i>
+                                    <span class="text-success">Request sent </span>
+                                </div>
                             </div>
                         </div> <!-- header hero content -->
                     </div>
@@ -331,7 +340,9 @@
                                     <div class="col-lg-12">
                                         <div class="our-services-content mt-45" style="padding-top: 3.5rem;">
                                             <h3 class="services-title" style="text-align: center;">Hotel Bookings</h3>
-                                            <p class="text" style="text-align: center;">Looking for a hotel ? Leave that to us. At One Stop Solutions, we provide hotel suggestions and booking service at the best competitive prices.
+                                            <p class="text" style="text-align: center;">Looking for a hotel ? Leave that
+                                                to us. At One Stop Solutions, we provide hotel suggestions and booking
+                                                service at the best competitive prices.
 
                                             <div style="text-align: center; padding-top: 3rem;">
                                                 <img src="assets/images/hotel.png" alt="service" width="500">
@@ -340,7 +351,10 @@
 
                                         <div class="our-services-content mt-45" style="padding-top: 3.5rem;">
                                             <h3 class="services-title" style="text-align: center;">Flight Bookings</h3>
-                                            <p class="text" style="text-align: center;">Booking flights can be a hassle at times, especially when it comes to rescheduling and cancellations. Which is why it is necessary to have a helping hand like One Stop Solutions to assist you in every phase of the process.
+                                            <p class="text" style="text-align: center;">Booking flights can be a hassle
+                                                at times, especially when it comes to rescheduling and cancellations.
+                                                Which is why it is necessary to have a helping hand like One Stop
+                                                Solutions to assist you in every phase of the process.
 
                                             <div style="text-align: center; padding-top: 3rem;">
                                                 <img src="assets/images/flight.png" alt="service" width="500">
@@ -350,7 +364,10 @@
 
                                         <div class="our-services-content mt-45" style="padding-top: 3.5rem;">
                                             <h3 class="services-title" style="text-align: center;">Rental Services</h3>
-                                            <p class="text" style="text-align: center;">Exploring a foreign destination becomes much more fun when you have your very own ride to cruise in. We provide Car and Boat rental service to ensure that no corner remains unexplored.
+                                            <p class="text" style="text-align: center;">Exploring a foreign destination
+                                                becomes much more fun when you have your very own ride to cruise in. We
+                                                provide Car and Boat rental service to ensure that no corner remains
+                                                unexplored.
 
                                             <div style="text-align: center; padding-top: 3rem;">
                                                 <img src="assets/images/car.png" alt="service" width="500">
@@ -368,8 +385,14 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="our-services-content mt-45" style="padding-top: 3.5rem;">
-                                            <h3 class="services-title" style="text-align: center;">IELTS/TOEFL Tutoring</h3>
-                                            <p class="text">Interested in studying abroad ? TOEFL and IELTS might pave the way. As the two major English language proficiency tests accepted at universities worldwide, achieving a particular score on those tests could help you to study in English in an institution of your choice, thus making it a very crucial part of the <b>studying abroad</b> process.</p>
+                                            <h3 class="services-title" style="text-align: center;">IELTS/TOEFL Tutoring
+                                            </h3>
+                                            <p class="text">Interested in studying abroad ? TOEFL and IELTS might pave
+                                                the way. As the two major English language proficiency tests accepted at
+                                                universities worldwide, achieving a particular score on those tests
+                                                could help you to study in English in an institution of your choice,
+                                                thus making it a very crucial part of the <b>studying abroad</b>
+                                                process.</p>
 
                                             <div style="text-align: center; padding-top: 3rem;">
                                                 <img src="assets/images/ielts.png" alt="service" width="500">
@@ -378,8 +401,12 @@
 
 
                                         <div class="our-services-content mt-45" style="padding-top: 3.5rem;">
-                                            <h3 class="services-title" style="text-align: center;">Internships and Placements</h3>
-                                            <p class="text">Choosing the right path for your career is no easy task, especially in today's world sprawling with competition in every field. We at <b>One Stop Solutions</b> help you to score your dream internship/job, aligning you with your career goal.</p>
+                                            <h3 class="services-title" style="text-align: center;">Internships and
+                                                Placements</h3>
+                                            <p class="text">Choosing the right path for your career is no easy task,
+                                                especially in today's world sprawling with competition in every field.
+                                                We at <b>One Stop Solutions</b> help you to score your dream
+                                                internship/job, aligning you with your career goal.</p>
 
                                             <div style="text-align: center; padding-top: 3rem;">
                                                 <img src="assets/images/internship.png" alt="service" width="500">
@@ -602,86 +629,6 @@
 
     <!--====== TESTIMONIAL PART ENDS ======-->
 
-    <!--====== BLOG PART START ======-->
-
-    <section id="blog" class="blog-area pt-115">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-4">
-                    <div class="section-title text-center pb-20 wow fadeInUp" data-wow-duration="1s"
-                        data-wow-delay="0.3s">
-                        <h6 class="sub-title">Our Blog</h6>
-                        <h4 class="title">Letest <span>News.</span></h4>
-                    </div> <!-- section title -->
-                </div>
-            </div> <!-- row -->
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-md-6 col-sm-8">
-                    <div class="single-blog mt-30 wow fadeInUpBig" data-wow-duration="1s" data-wow-delay="0.4s">
-                        <div class="blog-image">
-                            <a href="blog-details.html"><img src="assets/images/news-1.jpg" alt="news"></a>
-                        </div>
-                        <div class="blog-content">
-                            <h4 class="blog-title"><a href="blog-details.html">Nulla eget urna at tortor turpi feugiat
-                                    tristique in sit.</a></h4>
-                            <div class="blog-author d-flex align-items-center">
-                                <div class="author-image">
-                                    <img src="assets/images/author-1.jpg" alt="author">
-                                </div>
-                                <div class="author-content media-body">
-                                    <h6 class="sub-title">Posted by</h6>
-                                    <p class="text">Isabela Moreira</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- single blog -->
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-8">
-                    <div class="single-blog mt-30 wow fadeInUpBig" data-wow-duration="1s" data-wow-delay="0.7s">
-                        <div class="blog-image">
-                            <a href="blog-details.html"><img src="assets/images/news-2.jpg" alt="news"></a>
-                        </div>
-                        <div class="blog-content">
-                            <h4 class="blog-title"><a href="blog-details.html">Nulla eget urna at tortor turpi feugiat
-                                    tristique in sit.</a></h4>
-                            <div class="blog-author d-flex align-items-center">
-                                <div class="author-image">
-                                    <img src="assets/images/author-2.jpg" alt="author">
-                                </div>
-                                <div class="author-content media-body">
-                                    <h6 class="sub-title">Posted by</h6>
-                                    <p class="text">Elon Musk</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- single blog -->
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-8">
-                    <div class="single-blog mt-30 wow fadeInUpBig" data-wow-duration="1s" data-wow-delay="1s">
-                        <div class="blog-image">
-                            <a href="blog-details.html"><img src="assets/images/news-3.jpg" alt="news"></a>
-                        </div>
-                        <div class="blog-content">
-                            <h4 class="blog-title"><a href="blog-details.html">Nulla eget urna at tortor turpi feugiat
-                                    tristique in sit.</a></h4>
-                            <div class="blog-author d-flex align-items-center">
-                                <div class="author-image">
-                                    <img src="assets/images/author-3.jpg" alt="author">
-                                </div>
-                                <div class="author-content media-body">
-                                    <h6 class="sub-title">Posted by</h6>
-                                    <p class="text">Fiona</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- single blog -->
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </section>
-
-    <!--====== BLOG PART ENDS ======-->
-
     <!--====== CONTACT PART START ======-->
 
     <section id="contact" class="contact-area pt-120 pb-120">
@@ -741,17 +688,23 @@
 
                         <form id="contact-form">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="contact-form mt-45">
                                         <label>Enter Your Name</label>
                                         <input type="text" name="name" placeholder="Full Name" id="contactname"
                                             required>
                                     </div> <!-- contact-form -->
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="contact-form mt-45">
                                         <label>Enter Your Email</label>
                                         <input type="email" name="email" placeholder="Email" id="contactemail" required>
+                                    </div> <!-- contact-form -->
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="contact-form mt-45">
+                                        <label>Enter Your Phone Number</label>
+                                        <input id="phone" type="tel" name="phone" required style="width: 100% !important;"/>
                                     </div> <!-- contact-form -->
                                 </div>
                                 <div class="col-md-12">
@@ -767,6 +720,13 @@
                                         <button type="submit" class="main-btn" onclick="clientdetails()">Send
                                             Now</button>
                                     </div> <!-- contact-form -->
+
+
+                                    <div class="contact-form mt-45">
+                                        <button type="submit" class="main-btn" onclick="clientdetails()">Send
+                                            Now</button>
+                                    </div> <!-- contact-form -->
+
                                 </div>
                             </div> <!-- row -->
                         </form>
@@ -855,6 +815,14 @@
     <!--====== BACK TOP TOP PART ENDS ======-->
 
     <!--====== Contact Js ======-->
+    <script>
+        const phoneInputField = document.querySelector("#phone");
+        const phoneInput = window.intlTelInput(phoneInputField, {
+            utilsScript:
+                "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+        });
+
+    </script>
 
     <script>
 
@@ -879,6 +847,7 @@
                     console.log(data)
                     if (data == "ok") {
                         document.getElementById('emailhero').value = ""
+                        document.getElementById("successdiv").classList.add('d-block');
                     }
                 })
             }
@@ -889,6 +858,10 @@
         }
 
         function clientdetails() {
+
+            const phoneNumber = phoneInput.getNumber();
+            console.log(phoneNumber)
+
             console.log("Client inquiry!")
             var name = document.getElementById('contactname').value
             var email = document.getElementById('contactemail').value
